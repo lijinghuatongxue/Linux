@@ -1,7 +1,7 @@
 #!/bin/bash
 #anthor adou
 #date 2018.08.30
-#配合python分析访客ip地区
+#配合python分析访客ip地区 地址：https://github.com/lijinghuatongxue/Python_Pyecharts
 
 clear
 
