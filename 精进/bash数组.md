@@ -26,6 +26,7 @@ declare -a <name> 可以预定义一个空数组变量
 
 ## 示例
 
+```
 [root@local ~]#name[1]=lijinghua
 [root@local ~]#name[2]=niecongcong
 [root@local ~]#echo ${name[1]},${name[2]}
@@ -51,4 +52,7 @@ lijinghua,niecongcong
 
 [root@local ~]#echo ${#num[@]}   #数组中元素的个数
 6
+
+
+```
 
