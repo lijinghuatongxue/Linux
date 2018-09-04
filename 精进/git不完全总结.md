@@ -1,7 +1,114 @@
+## 重要概念
+
+工作区和暂存区
+
+工作区: 就是我们通$ git init 创建的代码库的所有文件但是不包括 .git文件(版本库) 
+
+暂存区: 我们通过git add ./*/*Xxx/Xxxx* 添加的修改,都是进入到暂存区了,肉眼不可见 通过  git status  可以看到修改的状态，修改只能在被add 到暂存区以后才能被提交
+
+Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快
+
 ## 展示帮助信息
 
 ```
 git help -g
+```
+
+## 将所有以Hello开头的文件的修改添加到暂存区 
+
+```
+git add Hello*   
+```
+
+```
+git add Hello?   #将以Hello开头后面只有一位的文件的修改提交到暂存区 例如:Hello1.txt,HelloA.java 如果是HelloGit.txt或者Hello.java是不会被添加的
+git add *lijinghua  # 将以Controller结尾的文件的所有修改添加到暂存区
+```
+
+## 配置邮箱和名字
+
+```
+ git config --global user.name "username" 
+
+ git config --global user.email "mail@mail.com"
+```
+
+
+
+## 查看仓库的状态
+
+```
+git status
+```
+
+
+
+## 将所有修改添加到暂存区
+
+```
+git add .
+```
+
+
+
+## 将暂存区的修改提交到仓库 
+
+```
+git commit -m "注释"
+```
+
+## 查看git的commit信息,每次提交的信息包括注视在内,从最新提交到最久提交
+
+```
+git log
+```
+
+
+
+## 将commit 信息简化成一行显示 ,git log 简化
+
+```
+git log --pretty=oneline
+```
+
+
+
+## 退回到相对于当前版本的上一个版本 HEAD 表示当前版本
+
+```
+git reset --hard HEAD^ 
+```
+
+
+
+## 退回到相对于当前版本的上上一个版本  HEAD 代表当前版本
+
+```
+git reset --hard HEAD^^
+```
+
+
+
+## 退回到相对于当前版本的上 100 个版本去  HEAD 表示当前版本
+
+```
+git reset --hard HEAD~100
+```
+
+
+
+## 退回到指定的版本,这里不需要全部写commit id  Git 回去自动适配
+
+```
+git reset --hard 676767676
+```
+
+
+
+## 在退回到旧版本之后可以查看旧版本之前的提交日志
+
+```
+git reflog   
 ```
 
 ## 回到远程仓库的状态
@@ -96,6 +203,12 @@ git branch -r
 
 ```
 git branch -a
+```
+
+## 创建分支
+
+```
+git branch  <branch-name>
 ```
 
 ## 创建并切换到本地分支
@@ -283,7 +396,7 @@ git remote add origin <remote-url>
 ## 列出所有远程仓库
 
 ```
-git remote
+git remote -v
 ```
 
 ## 查看两个星期内的改动
