@@ -22,3 +22,4 @@ db.ini
 deploy_key_rsa
 ```
 
+然后git add上传这个文件让git识别
