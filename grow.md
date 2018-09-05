@@ -9,15 +9,13 @@ touch .gitignore  #里面写入声明，哪些文件不上传
 示范
 
 ```
-Python:
 *.py[cod]
 *.so
 *.egg
 *.egg-info
 dist
 build
-
-My configurations:
+mysite/myapp
 db.ini
 deploy_key_rsa
 ```
