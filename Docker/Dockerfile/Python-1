@@ -1,0 +1,8 @@
+FROM python:3.5
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /opt/project
+WORKDIR /opt/project
+#ADD requirements.txt /opt/project
+#RUN pip install -r requirements.txt -i https://pypi.douban.com/simple/
+RUN pip install tqdm -i https://pypi.douban.com/simple/
+RUN pip install py2neo  -i https://pypi.douban.com/simple/
