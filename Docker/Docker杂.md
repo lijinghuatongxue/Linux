@@ -27,3 +27,12 @@ cat ubuntu.tar | sudo docker import - test/ubuntu:v1.0   /bin/bash
 
 ## 命令行往容器里面传送指令
  docker exec -it Container_name /bin/bash -c "source /etc/profile && java -jar neeq-es-0.0.1-SNAPSHOT.jar"
+
+## docker  容器使用root权限
+
+进入容器参数加上 --user root 
+
+比如 
+```
+docker exec -ti --user root  new_es  /bin/bash
+```
