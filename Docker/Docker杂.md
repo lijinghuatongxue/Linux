@@ -36,3 +36,10 @@ cat ubuntu.tar | sudo docker import - test/ubuntu:v1.0   /bin/bash
 ```
 docker exec -ti --user root  new_es  /bin/bash
 ```
+
+## 普通用户使用docker，不加sudo
+```
+当前用户添加到docker属组即可
+sudo gpasswd -a ${USER} docker
+```
+退出重新登录下
