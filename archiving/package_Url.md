@@ -36,3 +36,6 @@ http://mirror.centos.org/centos/6/os/i386/Packages/
 
 
 
+# tf的bazel
+
+https://github.com/bazelbuild/bazel/releases
