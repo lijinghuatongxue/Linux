@@ -49,6 +49,10 @@ build environment:
 
 # 给个启动配置文件
 
+
+
+注意，我这里是简化的配置文件，测试使用，比较全的配置文件在这里 https://github.com/lijinghuatongxue/Linux/blob/master/DB/mongodb%E5%8D%95%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3.md
+
 ```
 vim mongodb.conf
 
