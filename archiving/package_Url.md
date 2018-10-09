@@ -39,3 +39,7 @@ http://mirror.centos.org/centos/6/os/i386/Packages/
 # tf的bazel
 
 https://github.com/bazelbuild/bazel/releases
+
+# oracle 12c下载链接
+
+http://download.oracle.com/otn/linux/oracle12c/122010/linuxx64_12201_database.zip?AuthParam=1539073789_8fa23e8a37d974ccf05ce3ddc8e25213
