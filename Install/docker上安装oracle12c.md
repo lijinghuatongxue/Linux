@@ -58,6 +58,20 @@ ps -ef |grep oracle
 
 
 
+# 本地图形化连接oracle
+
+我使用的是 Navicat Premium
+
+![](https://s1.ax1x.com/2018/10/16/iayBDS.md.png)
+
+
+
+默认密码账号 system / oracle 或者 sys / oracle
+
+
+
+
+
 ##  连接到Oracle企业管理控制台
 
 地址 http://localhost:8080/em
