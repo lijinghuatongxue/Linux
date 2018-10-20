@@ -20,6 +20,7 @@ ETL，是英文 Extract-Transform-Load 的缩写，用来描述将数据从来�
 - [JDK(1.8以上，推荐1.8)](http://www.oracle.com/technetwork/cn/java/javase/downloads/index.html)
 - [Python(推荐Python2.6.X)](https://www.python.org/downloads/)
 - [Apache Maven 3.x](https://maven.apache.org/download.cgi) (Compile DataX)
+- 两台数据库
 
 ```
 ➜  ~ mvn -v
@@ -145,89 +146,92 @@ DataX Process was killed ! you did ?
 
 
 
-# 参考json配置
+
+
+# 怎样获取标准json格式？
 
 
 
-mysql|drds|oracle|ads|sqlserver|postgresql|db2 通用
+jdbcUrl防乱码处理  "jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/database_name?characterEncoding=utf8"], 
 
-
-
-
-
-
-
-jdbcUrl防乱码处理  "jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/database_name?characterEncoding=utf8"],   
+## mysql 到 mysql
 
 ```
+python datax.py  -r mysqlreader -w mysqlwriter
+```
+
+
+
+## postgres到mysql
+
+```
+➜  bin python datax.py  -r postgresqlreader -w mysqlwriter
+
+DataX (DATAX-OPENSOURCE-3.0), From Alibaba !
+Copyright (C) 2010-2017, Alibaba Group. All Rights Reserved.
+
+
+Please refer to the postgresqlreader document:
+     https://github.com/alibaba/DataX/blob/master/postgresqlreader/doc/postgresqlreader.md
+
+Please refer to the mysqlwriter document:
+     https://github.com/alibaba/DataX/blob/master/mysqlwriter/doc/mysqlwriter.md
+
+Please save the following configuration as a json file and  use
+     python {DATAX_HOME}/bin/datax.py {JSON_FILE_NAME}.json
+to run the job.
+
 {
     "job": {
         "content": [
             {
                 "reader": {
-                    "name": "db_reader", 
+                    "name": "postgresqlreader",
                     "parameter": {
-                        "column": [
-							"id",
-                            "name"
-						], 
                         "connection": [
                             {
-                                "jdbcUrl": ["jdbc:mysql://127.0.0.1:3306/dbname"], 
-                                "table": ["table1"]
+                                "jdbcUrl": [],
+                                "table": []
                             }
-                        ], 
-                        "password": "123456", 
-                        "username": "root"
+                        ],
+                        "password": "",
+                        "username": ""
                     }
-                }, 
+                },
                 "writer": {
-                    "name": "db_writer", 
+                    "name": "mysqlwriter",
                     "parameter": {
-                        "column": [
-                        "id",
-                        "name"
-						], 
+                        "column": [],
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:mysql://ip地址:端口/dbname", 
-                                "table": ["table2"]
+                                "jdbcUrl": "",
+                                "table": []
                             }
-                        ], 
-                        "password": "123456", 
-                        "username": "root"
+                        ],
+                        "password": "",
+                        "preSql": [],
+                        "session": [],
+                        "username": "",
+                        "writeMode": ""
                     }
                 }
             }
-        ], 
+        ],
         "setting": {
             "speed": {
-                "channel": "1"
+                "channel": ""
             }
         }
     }
 }
+➜  bin
 ```
 
 
 
-
-
-```
-CREATE TABLE table_name (column_name column_type);
-```
+# 使用
 
 ```
-INSERT INTO table_name ( test, test2,test3 )
-                       VALUES
-                       ( 1, 111,2222 );
+➜  bin python datax.py   *.json
 ```
 
-```
-CREATE TABLE IF NOT EXISTS `table_name`(
-   `id` INT UNSIGNED AUTO_INCREMENT,
-   `title` VARCHAR(100) NOT NULL,
-   `author` VARCHAR(40) NOT NULL,
-   `submission_date` DATE,
-);
-```
