@@ -235,3 +235,221 @@ to run the job.
 ➜  bin python datax.py   *.json
 ```
 
+
+
+#  栗子补充
+
+*mysql数据库测试* 
+
+## mysql插入数据
+
+### 写入表字段
+
+```
+mysql> use test1;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_test1 |
++-----------------+
+| table1          |
++-----------------+
+1 row in set (0.00 sec)
+
+
+mysql> CREATE TABLE IF NOT EXISTS `table1`
+(    `runoob_id`  VARCHAR(100) NOT NULL,  
+     `runoob_title` VARCHAR(100) NOT NULL,   
+     `runoob_author` VARCHAR(40) NOT NULL,    
+     `submission_date` VARCHAR(40) NOT NULL ,    
+     `runoob` VARCHAR(40) NOT NULL )
+;
+
+
+CREATE TABLE test_bak(
+   runoob_id  VARCHAR(100) NOT NULL,
+   runoob_title           VARCHAR(100)    NOT NULL,
+   runoob_author            VARCHAR(100)     NOT NULL,
+   submission_date        CHAR(50) NOT NULL ,
+   runoob    VARCHAR(40)     NOT NULL
+);  
+```
+
+### json参考格式
+
+```
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        },
+        "content": [
+            {
+                 "reader": {
+                    "name": "streamreader",
+                    "parameter": {
+                        "column" : [
+                            {
+                                "value": "DataX",
+                                "type": "string"
+                            },
+                            {
+                                "value": 19880808,
+                                "type": "long"
+                            },
+                            {
+                                "value": "1988-08-08 08:08:08",
+                                "type": "date"
+                            },
+                            {
+                                "value": true,
+                                "type": "bool"
+                            },
+                            {
+                                "value": "test",
+                                "type": "bytes"
+                            }
+                        ],
+                        "sliceRecordCount": 10000
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "username": "root",
+                        "password": "Swl19960706",
+                        "column": [
+                            "runoob_id",
+                            "runoob_title",
+			    "runoob_author",
+			    "submission_date",
+			    "runoob"
+                        ],
+                        "preSql": [
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/test1",
+                                "table": [
+                                    "table1"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+### 截图
+
+<a href="https://imgchr.com/i/iDQw34"><img src="https://s1.ax1x.com/2018/10/22/iDQw34.png" alt="iDQw34.png" border="0" /></a>
+
+
+
+
+
+## postgres插入数据
+
+
+
+### 写入表字段
+
+```
+ CREATE TABLE test_bak(
+   runoob_id  VARCHAR(100) NOT NULL,
+   runoob_title           VARCHAR(100)    NOT NULL,
+   runoob_author            VARCHAR(100)     NOT NULL,
+   submission_date        CHAR(50) NOT NULL ,
+   runoob    VARCHAR(40)     NOT NULL
+);
+```
+
+
+
+### json参考格式
+
+```
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        },
+        "content": [
+            {
+                 "reader": {
+                    "name": "streamreader",
+                    "parameter": {
+                        "column" : [
+                            {
+                                "value": "DataX",
+                                "type": "string"
+                            },
+                            {
+                                "value": 19880808,
+                                "type": "long"
+                            },
+                            {
+                                "value": "1988-08-08 08:08:08",
+                                "type": "date"
+                            },
+                            {
+                                "value": true,
+                                "type": "bool"
+                            },
+                            {
+                                "value": "test",
+                                "type": "bytes"
+                            }
+                        ],
+                        "sliceRecordCount": 1000
+                    }
+                },
+                "writer": {
+                    "name": "postgresqlwriter",
+                    "parameter": {
+                        "username": "postgres",
+                        "password": "password",
+                        "column": [
+                            "runoob_id",
+                            "runoob_title",
+			    "runoob_author",
+			    "submission_date",
+			    "runoob"
+                        ],
+                        "preSql": [
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:postgresql://ip/test1",
+                                "table": [
+                                    "test_bak"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
