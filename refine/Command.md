@@ -146,3 +146,46 @@ wget --ftp-user=USERNAME --ftp-password=PASSWORD url
 
 
 
+# printenv 
+
+打印出当前的环境变量
+
+
+
+```
+postgres@pa4:~$ printenv
+XDG_SESSION_ID=10976
+TERM=xterm-256color
+SHELL=/bin/bash
+HISTSIZE=3000
+SSH_CLIENT=221.219.137.90 53936 22
+OLDPWD=/root
+SSH_TTY=/dev/pts/3
+ZSH=/root/.oh-my-zsh
+USER=postgres
+LSCOLORS=Gxfxcxdxbxegedabagacad
+MAIL=/var/mail/postgres
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/lib/postgresql/.local/bin:/var/lib/postgresql/bin:/usr/local/postgresql/bin:/var/lib/postgresql/.local/bin:/var/lib/postgresql/bin:/usr/local/postgresql/bin
+PWD=/var/lib/postgresql
+LANG=en_US.utf8
+PGHOME=/usr/local/postgresql
+SHLVL=2
+HOME=/var/lib/postgresql
+LESS=-R
+LOGNAME=postgres
+SSH_CONNECTION=221.219.137.90 53936 172.30.0.3 22
+LC_CTYPE=en_US.UTF-8
+PGDATA=/home/data/postgresql
+PROMPT_COMMAND=history -a;
+XDG_RUNTIME_DIR=/run/user/0
+HISTTIMEFORMAT=%F %T
+_=/usr/bin/printenv
+```
+
+
+
+```
+postgres@pa4:~$ printenv  LANG
+en_US.utf8
+```
+
