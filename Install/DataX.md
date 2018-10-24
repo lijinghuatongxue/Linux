@@ -441,5 +441,68 @@ CREATE TABLE test_bak(
 }
 ```
 
+## postgres导入到mysql
 
+```
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "byte": 1048576
+            },
+                "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "postgresqlreader",
+                    "parameter": {
+                        "username": "postgres",
+                        "password": "swl19960706",
+                        "column": [
+				            "runoob_id",
+                            "runoob_title",
+                            "runoob_author",
+                            "submission_date",
+                            "runoob"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "test_bak"
+                                ],
+                                "jdbcUrl": [
+     "jdbc:postgresql://116.196.116.227:5432/test1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+			                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                            "*"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://127.0.0.1:3306/test1",
+                                "table": ["table1"]
+                            }
+                        ],
+                        "password": "Swl19960706",
+                        "preSql": [],
+                        "session": [],
+                        "username": "root",
+                        "writeMode": "insert"
+                    }
+                }
+            }
+        ]
+}
+    }
+```
 
