@@ -79,3 +79,36 @@ user: sys
 password: oracle
 connect as sysdba: true
 
+
+
+
+
+
+
+##  1、修改用户的密码
+
+```
+-- 查看用户的proifle是哪个，一般是default：
+SELECT username,PROFILE FROM dba_users;
+
+-- 查看指定概要文件（如default）的密码有效期设置：
+SELECT * FROM dba_profiles s WHERE s.profile='DEFAULT' AND resource_name='PASSWORD_LIFE_TIME';
+
+-- 将密码有效期由默认的180天修改成“无限制”：修改之后不需要重启动数据库，会立即生效。
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+
+-- 修改用户SYSTEM 密码
+alter user SYSTEM identified by "****password****";
+```
+
+
+
+
+
+##     2、解锁用户的方法
+
+```
+-- 解锁方法
+alter user SYSTEM account unlock;
+```
+
