@@ -18,3 +18,4 @@ wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://downl
 sudo yum localinstall -y jdk-8u131-linux-x64.rpm
 java -version
 ```
+
