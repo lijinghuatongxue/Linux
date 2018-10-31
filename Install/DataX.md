@@ -237,7 +237,7 @@ to run the job.
 
 
 
-#  栗子补充
+#  例子补充
 
 *mysql数据库测试* 
 
@@ -318,8 +318,8 @@ CREATE TABLE test_bak(
                 "writer": {
                     "name": "mysqlwriter",
                     "parameter": {
-                        "username": "root",
-                        "password": "Swl19960706",
+                        "username": "db_user",
+                        "password": "db_password",
                         "column": [
                             "runoob_id",
                             "runoob_title",
@@ -414,8 +414,8 @@ CREATE TABLE test_bak(
                 "writer": {
                     "name": "postgresqlwriter",
                     "parameter": {
-                        "username": "postgres",
-                        "password": "password",
+                        "username": "db_user",
+                        "password": "db_password",
                         "column": [
                             "runoob_id",
                             "runoob_title",
@@ -460,8 +460,8 @@ CREATE TABLE test_bak(
                 "reader": {
                     "name": "postgresqlreader",
                     "parameter": {
-                        "username": "postgres",
-                        "password": "swl19960706",
+                        "username": "db_user",
+                        "password": "db_password",
                         "column": [
 				            "runoob_id",
                             "runoob_title",
@@ -475,7 +475,7 @@ CREATE TABLE test_bak(
                                     "test_bak"
                                 ],
                                 "jdbcUrl": [
-     "jdbc:postgresql://116.196.116.227:5432/test1"
+     "jdbc:postgresql://ip:5432/test1"
                                 ]
                             }
                         ]
@@ -493,10 +493,10 @@ CREATE TABLE test_bak(
                                 "table": ["table1"]
                             }
                         ],
-                        "password": "Swl19960706",
+                        "password": "db_password",
                         "preSql": [],
                         "session": [],
-                        "username": "root",
+                        "username": "db_user",
                         "writeMode": "insert"
                     }
                 }
