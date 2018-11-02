@@ -427,7 +427,7 @@ CREATE TABLE test_bak(
                         ],
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:postgresql://ip/test1",
+                                "jdbcUrl": "jdbc:postgresql://ip:port/test1",
                                 "table": [
                                     "test_bak"
                                 ]
