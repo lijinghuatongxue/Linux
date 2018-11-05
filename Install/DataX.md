@@ -427,7 +427,7 @@ CREATE TABLE test_bak(
                         ],
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:postgresql://ip:port/test1",
+                                "jdbcUrl": "jdbc:postgresql://ip/test1",
                                 "table": [
                                     "test_bak"
                                 ]
@@ -505,4 +505,24 @@ CREATE TABLE test_bak(
 }
     }
 ```
+
+
+
+
+
+## 注意的地方
+
+
+
+```
+ "column": [
+     "*"
+  ],
+```
+
+这里的星号代表将会导入所有被read的DB库的所有字段
+
+
+
+
 
