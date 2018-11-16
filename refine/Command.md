@@ -189,3 +189,37 @@ postgres@pa4:~$ printenv  LANG
 en_US.utf8
 ```
 
+
+
+# fuser
+
+fuser命令是用来显示所有正在使用着指定的file, file system 或者 sockets的进程信息。
+
+```
+-c	包含 File 的文件系统中关于任何打开的文件的报告。
+-C	有关文件系统中安装在由 File 参数所指定的目录中的打开文件的报告。如果 File 参数不是安装点，那么该命令将报告错误。
+-d	包含 File 的文件系统中关于任何打开的已取消链接（已删除）文件的报告。当与 -V 标志一起使用时，它也会报告被删除文件的节点号和大小。
+-f	仅对 File 的打开实例报告。
+-K SignalNumber | SignalName	将指定信号发送到每个本地进程。只有 root 用户才能终止另一个用户的进程。可以将信号指定为 SignalName，例如，对 SIGKILL 信号或 SignalNumber（例如，9）指定 KILL。SignalName 的有效值是由 kill -l 命令所显示的那些值。
+-k	将 SIGKILL 信号发送到每个本地进程。只有 root 用户才能终止另一个用户的进程。
+-u	为进程号后圆括号中的本地进程提供登录名。
+-V	提供详细输出。
+-x	与 -c 或 -f 连用，报告除标准 fuser 输出以外的可执行的和可装入对象。
+
+```
+
+
+
+fuser -k 或 -K 可能无法检测和杀死程序开始运行后立即创建的新进程。
+
+##  查看当前占用800端口的用户及程序
+
+```
+➜  ~ fuser -v -n tcp 800
+Cannot stat file /proc/24084/fd/4: Stale file handle
+Cannot stat file /proc/24274/fd/4: Stale file handle
+                     USER        PID ACCESS COMMAND
+800/tcp:             root       1283 F.... nginx
+                     www        1284 F.... nginx
+```
+
