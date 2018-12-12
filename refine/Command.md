@@ -349,3 +349,12 @@ nginx   31577 31577 root  txt       REG              253,1 10725336 444745 /usr/
 nginx   31577 31577 root  mem       REG              253,1    47600 412341 /lib/x86_64-linux-gnu/libnss_files-2.23.so
 ```
 
+# virt-what
+
+识别机器是怎么虚拟化的
+
+```
+root@paa1:~# virt-what
+vmware
+```
+
