@@ -23,3 +23,17 @@ mkdir /var/lib/dpkg/info    #再新建一个新的info文件夹
 apt-get update -y
 ```
 
+# Mysql 内存不足
+
+报错日志
+
+```
+171112 8:13:06 InnoDB: Fatal error: cannot allocate memory for the buffer pool
+```
+
+描述：mysql在一次重启之后，怎么都起不来
+
+解决：先停掉app层的业务，再重启数据库
+
+或者增加内存|swap
+
