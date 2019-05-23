@@ -118,7 +118,11 @@ open-files-limit   = 65535
 # 避免MySQL外部锁定
 
 external-locking = FALSE
+# innodb的dml操作的行级锁的等待时间
+innodb_lock_wait_timeout = 5
 
+# 数据结构ddl操作的锁的等待时间
+lock_wait_timeout = 5
 # 连接地址限制
 
 bind-address		= 0.0.0.0
